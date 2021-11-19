@@ -1,49 +1,49 @@
 # Programación Backend - Coderhouse
 ## Autor: _Camilo Gálvez Vidal_
 
-## Desafío 3
+## Desafío 4
 
 
 ### Features
 - Servidor simple creado con NPM y Express
-- Prueba método GET solamente
+- Se prueba métodos GET, POST, PUT y DELETE en un API REST
+- Permite el listado de productos
+- Permite agregar un producto al listado existente, utilizando un formulario HTML
+- Permite obtención, actualización y eliminación de un producto en específico
 
 ### Requisitos
 Para el buen funcionamiento de este servidor, es **extrictamente** necesario tener en cuenta los siguientes puntos:
-- Para la buena ejecución de los endpoints establecidos, es necesario generar en la raiz del repositorio el archivo `producto.txt` como fuente de datos. Se puede utilizar el siguiente ejemplo como archivo: 
+
+- Para agregar un producto nuevo, el objeto debe cumplir con la siguiente estructura:
 ```sh
-[
-	{
-		"title": "Escuadra",
-		"price": 123.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"id": 1
-	},
-	{
-		"title": "Calculadora",
-		"price": 234.56,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
-		"id": 2
-	},
-	{
-		"title": "Globo Terráqueo",
-		"price": 345.67,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
-		"id": 3
-	}
-]
+{ 
+    "title": "Escuadra",
+    "price": 123.55,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"
+}
 ```
+
 - Este servidor utilizará como característica la recompilación automática cuando se detecte un cambio, utilizando el paquete `nodemon`. Por este motivo, es necesario que dicha dependencia este agregada en el archivo `package.json`. Si no se encontrara la dependencia, se puede instalar en el directorio local del repositorio, utilizando el comando `npm install nodemon --save`.
 
 ### Instalación y ejecución
 Para la instalación y próxima ejecución del servidor, se debe ejecutar los siguientes comandos:
 ```sh
-cd coderhouse_backend
+cd coderhouse_backend_2
 npm install
 npm start
 ```
 
 El servidor se ejecutará de manera local en el puerto `8080`.
+
+### Listado de endpoints disponibles
+
+```sh
+http://localhost:8080/api/productos - GET [Obtiene el listado de productos]
+http://localhost:8080/api/productos/:id - GET [Obtiene un producto en específico]
+http://localhost:8080/api/productos - POST [Agrega un producto nuevo]
+http://localhost:8080/api/productos/:id - PUT [Edita un producto en específico]
+http://localhost:8080/api/productos/:id - DELETE [Elimina un producto en específico]
+```
 
 Ante cualquier duda acerca del desarrollo, puede tomar contacto con el autor utilizando los siguientes medios de comunicación:
 [Email]: <camilogalvezv@gmail.com>
