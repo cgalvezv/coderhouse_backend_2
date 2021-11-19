@@ -1,29 +1,39 @@
-const File = require('./src/classes/File.js');
-const http = require('http');
+//Desafío 4 - Api RESTfull
+//author: Camilo Gálvez Vidal
 const express = require('express');
 
 const app = express();
-const PORT = 8080;
-const filePath = './productos.txt';
 
-const file = new File(filePath)
-app.get('/productos', async (req, res) => {
-    const allProducts = await file.getAll();
-    res.json(allProducts)
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-app.get('/productoRandom', async (req, res) => {
-    const randomProduct = await file.getRandom();
-    res.send(randomProduct)
-})
+//#region LOGICA STATICS FILE
+app.get('/', (req, res) => {
+    res.sendFile('index');
+});
+//#region 
+
+//#region LOGICA MIDDLEWARE ERROR HANDLER
+app.use((err, req, res, next) => {
+    return res.status(500).send(`Error Servidor\n${JSON.stringify(err.message, null, 2)}`);
+});
+//#endregion
+
+//#region LOGICA ROUTER
+const router = require('./src/routes/products');
+app.use('/api', router);
+//#endregion
+
 
 // pongo a escuchar el servidor en el puerto indicado
-const server = app.listen(PORT, () => {
-    console.log(`servidor escuchando en http://localhost:${PORT}`);
+const puerto = 8080;
+
+const server = app.listen(puerto, () => {
+    console.log(`servidor escuchando en http://localhost:${puerto}`);
 });
 
-// Manejo de errores
+// en caso de error, avisar
 server.on('error', error => {
-    console.error('error en el servidor:', error);
+    console.log('error en el servidor:', error);
 });
-
