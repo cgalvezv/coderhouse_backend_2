@@ -1,4 +1,4 @@
-//Desafío 5 - Motores de plantilla - EJS
+//Desafío 5 - Motores de plantilla - PUG
 //author: Camilo Gálvez Vidal
 const express = require('express');
 const fetch = require('node-fetch');
@@ -30,9 +30,10 @@ const formIngresoProducto = [
     },
 ];
 
-// seteo el motor de plantilla
+// indica el directorio donde se almacenaran las plantillas
 app.set('views', './src/views');
-app.set('view engine', 'ejs');
+// se indica el motor de plantillas a utilizar
+app.set('view engine', 'pug');
 
 //#region LOGICA MIDDLEWARE ERROR HANDLER
 app.use((err, req, res, next) => {
@@ -52,11 +53,11 @@ app.get('/productos/vista', async (req, res) => {
     })
     const objectResponseApi = JSON.parse(await responseApi.text());
     const data = objectResponseApi.error ? [] : objectResponseApi;
-    res.render('get_products', { productos: data, hayProductos: data.length > 0 });
+    res.render('get_products.pug', { productos: data });
 });
 
 app.get('/', async (req, res) => {
-    res.render('add_products', { inputs: formIngresoProducto });
+    res.render('add_products.pug', { inputs: formIngresoProducto });
 });
 //#region 
 
