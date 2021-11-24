@@ -40,6 +40,7 @@ El servidor se ejecutará de manera local en el puerto `8080`.
 ```sh
 http://localhost:8080 - [Muestra el formulario para agregar un nuevo producto al listado]
 http://localhost:8080/productos/vista - [Muestra el listado de productos disponibles]
+```
 
 ### Listado de endpoints disponibles
 
