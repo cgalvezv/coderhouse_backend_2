@@ -7,7 +7,7 @@
 ### Features
 - Servidor simple creado con NPM y Express
 - Se prueba métodos GET, POST, PUT y DELETE en un API REST
-- Permite el listado de productos, utilizando **EJS** para express, como motor de plantillas
+- Permite el listado de productos, utilizando **PUG** para express, como motor de plantillas
 - Permite agregar un producto al listado existente, utilizando un formulario HTML
 - Permite obtención, actualización y eliminación de un producto en específico
 
