@@ -28,7 +28,7 @@ Para el buen funcionamiento de este servidor, es **extrictamente** necesario ten
 ### Instalación y ejecución
 Para la instalación y próxima ejecución del servidor, se debe ejecutar los siguientes comandos:
 ```sh
-cd coderhouse_backend
+cd coderhouse_backend_2
 npm install
 npm start
 ```
