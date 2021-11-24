@@ -1,7 +1,6 @@
-//Desafío 5 - Motores de plantilla - Handlebars
+//Desafío 5 - Motores de plantilla - EJS
 //author: Camilo Gálvez Vidal
 const express = require('express');
-const handlebars = require('express-handlebars');
 const fetch = require('node-fetch');
 
 const app = express();
@@ -32,16 +31,8 @@ const formIngresoProducto = [
 ];
 
 // seteo el motor de plantilla
-app.set('view engine', 'hbs');
 app.set('views', './src/views');
-
-// configuracion de handlebars en express
-app.engine('hbs', handlebars({
-    extname: '.hbs',
-    defaultLayout: 'index.hbs',
-    layoutsDir: __dirname + '/src/views/layouts',
-    partialsDir: __dirname + '/src/views/partials/'
-}));
+app.set('view engine', 'ejs');
 
 //#region LOGICA MIDDLEWARE ERROR HANDLER
 app.use((err, req, res, next) => {
