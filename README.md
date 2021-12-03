@@ -1,15 +1,14 @@
 # Programación Backend - Coderhouse
 ## Autor: _Camilo Gálvez Vidal_
 
-## Desafío 5
+## Desafío 6
 
 
 ### Features
 - Servidor simple creado con NPM y Express
-- Se prueba métodos GET, POST, PUT y DELETE en un API REST
-- Permite el listado de productos, utilizando **Handlebars** para express, como motor de plantillas
-- Permite agregar un producto al listado existente, utilizando un formulario HTML
-- Permite obtención, actualización y eliminación de un producto en específico
+- Se prueba websocket's utilizando dependencia **Socket IO**
+- Con la misma herramienta anterior se crea un canal de chat
+- Se utiliza template string para implementación dinámica de la tabla de productos
 
 ### Requisitos
 Para el buen funcionamiento de este servidor, es **extrictamente** necesario tener en cuenta los siguientes puntos:
@@ -20,6 +19,16 @@ Para el buen funcionamiento de este servidor, es **extrictamente** necesario ten
     "title": "Escuadra",
     "price": 123.55,
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"
+}
+```
+
+- El formato del objeto que contiene un mensaje del chat es el siguiente:
+```sh
+{
+  id: 'x6GZQw1DOwqEA1SPAAAD',
+  author: 'Camilo',
+  fyh: '22/06/2021 20:35:10',
+  text: 'Hola'
 }
 ```
 
@@ -38,18 +47,7 @@ El servidor se ejecutará de manera local en el puerto `8080`.
 ### Listado de vistas disponibles
 
 ```sh
-http://localhost:8080 - [Muestra el formulario para agregar un nuevo producto al listado]
-http://localhost:8080/productos/vista - [Muestra el listado de productos disponibles]
-```
-
-### Listado de endpoints disponibles
-
-```sh
-http://localhost:8080/api/productos - GET [Obtiene el listado de productos]
-http://localhost:8080/api/productos/:id - GET [Obtiene un producto en específico]
-http://localhost:8080/api/productos - POST [Agrega un producto nuevo]
-http://localhost:8080/api/productos/:id - PUT [Edita un producto en específico]
-http://localhost:8080/api/productos/:id - DELETE [Elimina un producto en específico]
+http://localhost:8080 - [Muestra el formulario para agregar un nuevo producto al listado y además muestra canal de chat]
 ```
 
 Ante cualquier duda acerca del desarrollo, puede tomar contacto con el autor utilizando los siguientes medios de comunicación:
