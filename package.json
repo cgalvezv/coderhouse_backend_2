@@ -1,0 +1,25 @@
+{
+  "name": "coderhouse_backend_2",
+  "version": "1.0.0",
+  "description": "Desafíos y proyecto final para curso Programación Back-End - Coderhouse",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgalvezv/coderhouse_backend_2.git"
+  },
+  "author": "cgalvezv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgalvezv/coderhouse_backend_2/issues"
+  },
+  "homepage": "https://github.com/cgalvezv/coderhouse_backend_2#readme"
+}
