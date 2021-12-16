@@ -1,38 +1,38 @@
 const express = require('express');
 const router = express.Router();
 
-const products = require('../classes/Products');
+const productosController = require('../api/productos');
 
 //GET: Obtener todo el listado de productos
-router.get('/productos', (req, res) => {
-    const response = products.get();
-    if (response.error) res.status(response.code).json({ error: response.msg });
+router.get('/', async (req, res) => {
+    const response = await productosController.get();
+    if (response.error) res.status(response.code).json({ error: true, msg: response.msg });
     res.status(200).json(response);
 })
 //GET: Obtener un producto en específico, recibiendo el ID desde el uri
-router.get('/productos/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const { id } = req.params;
-    const response = products.get(id);
-    if (response.error) res.status(response.code).json({ error: response.msg });
+    const response = productosController.get(id);
+    if (response.error) res.status(response.code).json({ error: true, msg: response.msg });
     res.status(200).json(response);
 })
 //POST: Agregar un nuevo producto al listado de productos
-router.post('/productos', (req, res) => {
+router.post('/', async (req, res) => {
     const { title, price, thumbnail } = req.body;
-    const response = products.add(title, price, thumbnail)
+    const response = await productosController.add(title, price, thumbnail)
     res.status(200).json(response);
 })
 //PUT: Agregar un nuevo producto al listado de productos
-router.put('/productos/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { title, price, thumbnail } = req.body;
-    const response = products.edit(id, title, price, thumbnail)
+    const response = await productosController.edit(id, title, price, thumbnail)
     res.status(200).json(response);
 })
 //DELETE: Agregar un nuevo producto al listado de productos
-router.delete('/productos/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
-    const response = products.delete(id)
+    const response = await productosController.delete(id)
     res.status(200).json(response);
 })
 

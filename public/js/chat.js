@@ -1,15 +1,15 @@
 socket.on('messages', function(data) { 
-    console.log('data', data);
     render(data);
 });
 
 function render(data) { 
-    var html = data.map(function(elem, index){ 
+    var html = data.map(function(elem, index){
+        console.log(elem)
     return(`
             <div>
-                <b style="color:blue;">${elem.author}</b> 
-                [<span style="color:brown;">${elem.fyh}</span>] : 
-                <i style="color:green;">${elem.text}</i>
+                <b style="color:blue;">${elem.email || 'Anónimo'}</b> 
+                [<span style="color:brown;">${elem.fecha}</span>] : 
+                <i style="color:green;">${elem.mensaje || 'Sin Mensaje'}</i>
             </div>
         `) 
     }).join(" "); 
