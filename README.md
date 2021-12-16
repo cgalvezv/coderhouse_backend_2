@@ -27,14 +27,6 @@ Para el buen funcionamiento de este servidor, es **extrictamente** necesario ten
 }
 ```
 
-- Para informar que el usuario que esta interactuando es **administrador**, dentro del objeto se debe agregar el siguiente campo:
-```sh
-{ 
-    "administrador": true
-}
-```
-
-
 - Este servidor utilizará como característica la recompilación automática cuando se detecte un cambio, utilizando el paquete `nodemon`. Por este motivo, es necesario que dicha dependencia este agregada en el archivo `package.json`. Si no se encontrara la dependencia, se puede instalar en el directorio local del repositorio, utilizando el comando `npm install nodemon --save`.
 
 ### Instalación y ejecución
@@ -52,20 +44,21 @@ El servidor se ejecutará de manera local en el puerto `8080`.
 - **Productos**
 
 ```sh
-http://localhost:8080/api/productos/listar - GET [Obtiene el listado de productos]
-http://localhost:8080/api/productos/listar/:id - GET [Obtiene un producto en específico]
-http://localhost:8080/api/productos/agregar - POST [Agrega un producto nuevo]
-http://localhost:8080/api/productos/actualizar/:id - PUT [Edita un producto en específico]
-http://localhost:8080/api/productos/borrar/:id - DELETE [Elimina un producto en específico]
+http://localhost:8080/api/productos - GET [Obtiene el listado de productos]
+http://localhost:8080/api/productos/:id - GET [Obtiene un producto en específico]
+http://localhost:8080/api/productos - POST [Agrega un producto nuevo]
+http://localhost:8080/api/productos/:id - PUT [Edita un producto en específico]
+http://localhost:8080/api/productos/:id - DELETE [Elimina un producto en específico]
 ```
 
 - **Carro de compras**
 
 ```sh
-http://localhost:8080/api/carrito/listar - GET [Obtiene el listado de items del carrito]
-http://localhost:8080/api/carrito/listar/:id - GET [Obtiene un item del carrito en específico]
-http://localhost:8080/api/carrito/agregar - POST [Agrega un item de carrito nuevo]
-http://localhost:8080/api/carrito/borrar/:id - DELETE [Elimina un items de carrito en específico]
+http://localhost:8080/api/carrito - POST [Crea un carrito nuevo]
+http://localhost:8080/api/carrito/:id - DELETE [Elimina un carrito en específico]
+http://localhost:8080/api/carrito/:id/productos - GET [Lista los productos de un carro en específico]
+http://localhost:8080/api/carrito/:id/productos/:ids_productos - POST [Agrega un/os producto/s a un carro en específico]
+http://localhost:8080/api/carrito/:id/productos/:id_producto - GET [Elimina un solo producto de un carro en específico]
 ```
 
 ### Listado de errores 
