@@ -1,7 +1,7 @@
 class CarroItem {
     constructor(id) {
         this.id = id;
-        this.producto = null;
+        this.productos = [];
         this.timestamp = Date.now();
     }
 }
